@@ -33,7 +33,7 @@ export function Header() {
     };
 
     return (
-        <header className="fixed justify-between flex flex-row items-center w-full py-[10px] shadow-lg border-b-2 border-[#7dd3fc] z-50">
+        <header className="fixed justify-between flex flex-row items-center w-full py-[10px] shadow-lg border-b border-[var(--color-base-300)] z-50">
             <LogoUsaha />
 
             <div className="flex flex-row items-center space-x-4 lg:space-x-9">

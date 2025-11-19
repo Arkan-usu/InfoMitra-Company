@@ -34,8 +34,8 @@ export function CaraKerja({pages}) {
                                 <div className='mb-3 flex mx-auto items-center justify-center text-2xl font-bold p-0 m-0 size-14 bg-blue-500 rounded-full'> 
                                     <span>{n++}</span>
                                 </div>
-                                <h1 className="text-center font-semibold md:text-xl text-lg"> {item.section} </h1>
-                                <h1 className="text-center md:text-lg text-base mb-3 mt-3">
+                                <h1 className="text-center font-semibold md:text-xl text-lg mx-3"> {item.section} </h1>
+                                <h1 className="text-center md:text-lg text-base mb-3 mt-3 mx-5">
                                     {item.penjelasan}
                                 </h1>
                             </motion.div>

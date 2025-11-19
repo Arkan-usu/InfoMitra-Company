@@ -6,36 +6,6 @@ main{
     flex: 1;
 }
 
-.main_brosur{
-    background: var(--warna_brosur);
-    position: relative;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    box-sizing: border-box;
-    padding: 5vh 0;
-}
-
-.wadah_brosur{
-    user-select: none;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    gap: 5vw;
-}
-
-.wadah_brosur img:first-child{
-    margin-left: 15vw;
-}
-
-.wadah_brosur img{
-    border-radius: 20px;
-    width: 70vw;
-    min-width: 70vw;
-    flex-shrink: 0;
-}
-
 .klik {
     position: absolute;
     top: 50%;
@@ -69,15 +39,7 @@ main{
     margin-right: auto;
 }
 
-/* semua daftar brosur */
-.daftar_brosur{
-    background: var(--warna_daftar);
-    width: 100vw;
-    height: auto;
-    overflow-y: hidden;
-    padding-top: 2vh;
-}
-
+/* penting */
 .judul_daftar{
     width: 90%;
     display: flex;
@@ -87,70 +49,7 @@ main{
     align-items: flex-end;
     font-size: 2vw;
 }
-
-.semua_brosur{
-    width: 90%;
-    height: auto;
-    display: flex;
-    margin: auto;
-    gap: 2%;
-    flex-wrap: wrap;
-    overflow-y: hidden;
-    padding: 2%;
-}
-
-.kotak_brosur{
-    border: 2px solid rgba(0, 0, 0, 0.137);
-    width: calc(90vw / 6);
-    height: 225px;
-    border-radius: 10px;
-    display: flex; 
-    flex-direction: column;
-    margin-bottom: 2vh;
-    padding: 10px 5px 10px 5px;
-}
-
-.kotak_brosur:hover{
-    border: 2px solid green;
-}
-
-.gambar_produk {
-    height: 64%;
-    width: 90%;
-    margin: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.deskripsi{
-    width: 100%;
-    height: 10%;
-    text-align: center;
-    font-size: var(--huruf_biasa_main);
-    margin: auto;
-}
-
-.selengkapnya{
-    width: 80%;
-    height: 15%;
-    font-size: var(--huruf_biasa_main);
-    margin: auto;
-    border-radius: 5px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.selengkapnya:hover{
-    cursor: pointer;
-}
-
-.selengkapnya span:hover{
-    color: rgb(48, 48, 48);
-}
+/* penting */
 
 /* kotak testimoni */
 .komentar_brosur{
@@ -222,46 +121,6 @@ main{
     border: 2px solid rgba(0, 0, 0, 0.137);
     width: 100%;
     height: 68%;
-}
-
-@media (max-width: 768px) {
-    .main_brosur{
-        padding: 2vh 0;
-    }
-
-    .wadah_brosur img{
-        border-radius: 10px;
-        width: 98vw;
-    }
-
-    .wadah_brosur img:first-child{
-        margin-left: 1vw;
-    }
-
-    .klik{
-        display: none;
-    }
-
-    .judul_daftar{
-        font-size: 5vw;
-    }
-
-    .semua_brosur{
-        width: 95%;
-        gap: 1%;
-        padding: 2%;
-    }
-
-    .kotak_brosur{
-        width: calc(90vw / 2);
-        height: 175px;
-        pointer-events: none;
-    } 
-
-    .deskripsi,
-    .selengkapnya{
-        font-size: 2vh;
-    }
 }
 
 /* <------------------------ akhir main ------------------------> */

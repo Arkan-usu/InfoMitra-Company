@@ -33,7 +33,7 @@ export function LogoUsaha() {
     return (
         <section>
             <img src={logoSrc} alt="Logo Bisnis" onClick={handleLogoClick}
-                className="h-[40px] md:h-[50px] lg:h-[60px] cursor-pointer ml-0 lg:ml-5" />
+                className="h-[50px] cursor-pointer ml-0 lg:ml-5" />
         </section>
     );
 }
@@ -43,7 +43,7 @@ export function LaptopNavigasi({ navLinks }) {
         <section className="text-2xl hidden lg:flex">
             <ul className="flex flex-row justify-center space-x-10">
                 {navLinks.map((link) => (
-                    <li key={link.text} className="font-bold hover:text-gray-200 hover:underline">
+                    <li key={link.text} className="font-semibold hover:text-[var(--color-neutral)] hover:underline">
                         <Link to={link.to}>{link.text}</Link>
                     </li>
                 ))}

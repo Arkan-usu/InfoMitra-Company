@@ -19,10 +19,13 @@ import Inovasi from "./Inovasi.svg"
 import Kemudahan from "./Kemudahan.svg"
 import Transparansi from "./Transparansi.svg"
 
+import SearchIcon from "./search.svg"
+
 export {
     logoWa, logoEmail, logoIg,
     logoSrc, anonimusIcon, signUpIcon, logInIcon,
     logoUsu, logoFasilkom, logoBisnis,
     sebelum, sesudah, 
-    Pemberdayaan, Inovasi, Kemudahan, Transparansi
+    Pemberdayaan, Inovasi, Kemudahan, Transparansi,
+    SearchIcon
 }

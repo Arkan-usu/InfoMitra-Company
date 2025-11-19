@@ -34,6 +34,7 @@ import { PlanDetails } from './component/PlanDetails';
 import { TampilanAwal } from "./component/tampilan-awal.jsx";
 import { HeroSection, NilaiNilai } from "./component/hero-section.jsx";
 import { ProfilTamu } from "./component/profil-belum-ada-akun.jsx";
+import { SearchingBrosur } from "./component/search-kategori.jsx";
 
 
 export {
@@ -42,5 +43,5 @@ export {
     LogoUsaha, LaptopNavigasi, MobileMenu, UserProfile,
     Header, MainLayout, Footer,
     PricingCard, PlanDetails, TampilanAwal, 
-    HeroSection, NilaiNilai, ProfilTamu,
+    HeroSection, NilaiNilai, ProfilTamu, SearchingBrosur
 }

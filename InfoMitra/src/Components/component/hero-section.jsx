@@ -10,7 +10,7 @@ export const Jelajahi = () => {
     return(
         <>
             <Link to="/Pages/galeri-iklan">
-                <div className="bg-green-500 px-10 py-3 text-white font-bold text-lg md:text-xl rounded-lg my-10 w-64 text-center mx-auto hover:bg-green-600">
+                <div className="bg-[var(--color-success)] px-10 py-3 font-bold text-lg md:text-xl rounded-lg my-10 w-64 text-center mx-auto hover:bg-[var(--color-success-hover)]">
                     Jelajahi InfoMitra
                 </div>
             </Link>
@@ -22,7 +22,7 @@ export const TentangKami = () => {
     return(
         <>
             <Link to="/Pages/tentang-kami">
-                <div className="border-2 px-10 py-3 font-bold text-lg md:text-xl rounded-lg my-10 w-64 text-center mx-auto hover:bg-gray-400">
+                <div className="border-2 px-10 py-3 font-bold text-lg md:text-xl rounded-lg my-10 w-64 text-center mx-auto hover:bg-[var(--color-base-200)]">
                     Tentang Kami
                 </div>
             </Link>
@@ -33,11 +33,11 @@ export const TentangKami = () => {
 export function HeroSection({beranda}){
     return(
         <>
-            <motion.section className='h-screen flex text-white bg-linear-to-r from-[#1f3246] to-[#13489c]' variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+            <motion.section className='h-screen flex text-gray-300 bg-[var(--color-base-100)]' variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
                 <div className='my-auto'>
                     <motion.h1 className="text-center font-bold text-2xl md:text-5xl px-5 md:px-30 pb-5" variants={itemVariants} >
                         Promosi Digital yang Mudah & Terjangkau untuk UMKM
-                    </motion.h1>
+                    </motion.h1> 
 
                     <motion.h2  className="text-justify md:text-center md:px-15 px-5 text-lg md:text-2xl" variants={itemVariants} >
                         {heroDescription.map((text, index) => (

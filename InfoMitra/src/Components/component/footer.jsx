@@ -35,7 +35,7 @@ export function Footer() {
                 <div className="py-2 md:py-5 w-1/2 md:w-3/5 flex flex-col md:flex-row text-xs md:text-lg flex-wrap">
                     <div className="flex flex-col pl-2 md:pl-10 md:w-1/2">
                         {footerLink1.map((link) => (
-                            <Link key={link.text} to={link.to} title={link.title} className="py-1 cursor-pointer hover:underline hover:text-gray-700">
+                            <Link key={link.text} to={link.to} title={link.title} className="py-1 cursor-pointer hover:underline hover:text-[var(--color-neutral)]">
                                 <b>{link.text}</b>
                             </Link>
                         ))}
@@ -43,7 +43,7 @@ export function Footer() {
 
                     <div className="flex flex-col pl-2 md:pl-10 md:w-1/2">
                         {footerLink2.map((link) => (
-                            <Link key={link.text} to={link.to} title={link.title} className="py-1 cursor-pointer hover:underline hover:text-gray-700">
+                            <Link key={link.text} to={link.to} title={link.title} className="py-1 cursor-pointer hover:underline hover:text-[var(--color-neutral)]">
                                 <b>{link.text}</b>
                             </Link>
                         ))}
@@ -54,7 +54,7 @@ export function Footer() {
                 {/* Informasi tambahan */}
                 <div className="py-2 md:py-5 w-1/2 lg:w-2/5 flex flex-col text-xs md:text-lg">
                     {contactInfo.map((item) => (
-                    <div key={item.text} className="py-1 flex flex-row ml-3 md:ml-1 hover:underline">
+                    <div key={item.text} className="py-1 flex flex-row ml-3 md:ml-1 hover:underline hover:text-[var(--color-neutral)]">
                         
                         {item.icon && (
                             <img src={item.icon} alt={item.alt} title={item.title} className="w-[25px] mr-[1vw]" />
@@ -66,7 +66,7 @@ export function Footer() {
                     </div>
                     ))}
 
-                    <div className="py-1 flex flex-row ml-3 md:ml-1 hover:underline">
+                    <div className="py-1 flex flex-row ml-3 md:ml-1">
                         <b>InfoMitra NIB:1909250087476</b>
                     </div>
                 </div>
