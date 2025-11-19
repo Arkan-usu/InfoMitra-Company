@@ -20,6 +20,8 @@ import Kemudahan from "./Kemudahan.svg"
 import Transparansi from "./Transparansi.svg"
 
 import SearchIcon from "./search.svg"
+import CheckIcon from "./check.svg"
+import CheckIcon2 from "./checkmewah.svg"
 
 export {
     logoWa, logoEmail, logoIg,
@@ -27,5 +29,5 @@ export {
     logoUsu, logoFasilkom, logoBisnis,
     sebelum, sesudah, 
     Pemberdayaan, Inovasi, Kemudahan, Transparansi,
-    SearchIcon
+    SearchIcon, CheckIcon, CheckIcon2
 }
