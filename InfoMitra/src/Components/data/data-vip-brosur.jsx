@@ -14,4 +14,32 @@ export const kotakbanner = [
         id: 3, 
         gambar: bannerazka
     },
+     { 
+        id: 1, 
+        gambar: bannerrya    
+    },
+    { 
+        id: 2, 
+        gambar: bannerpromosi
+        
+    },
+    { 
+        id: 3, 
+        gambar: bannerazka
+    },
+     { 
+        id: 1, 
+        gambar: bannerrya    
+    },
+    { 
+        id: 2, 
+        gambar: bannerpromosi
+        
+    },
+    { 
+        id: 3, 
+        gambar: bannerazka
+    },
+    
 ];
+

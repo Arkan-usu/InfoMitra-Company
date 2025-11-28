@@ -1,99 +1,87 @@
 import { useEffect, useRef, useState } from "react";
 import { kotakbanner } from "../data/data-vip-brosur";
+import { sebelum, sesudah } from "@/assets/logo";
 
 export function BrosurVip() {
-    const sliderRef = useRef(null);
-    const [posisi, setPosisi] = useState(0);
-    const speed = 2; // 🔥 kecepatan geser (semakin besar semakin cepat)
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoverIndex, setHoverIndex] = useState(null); // track hover
+  const banyakBanner = kotakbanner.length;
+  const containerRef = useRef(null);
 
-    useEffect(() => {
-        const slider = sliderRef.current;
+  // Auto-slide setiap 3 detik
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % banyakBanner);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [banyakBanner]);
 
-        function gerak() {
-            setPosisi(prev => {
-                let next = prev - speed;
-                if (Math.abs(next) > slider.scrollWidth / 2) {
-                    return 0;
-                }
-                return next;
-            });
-        }
+  // Swipe gesture
+  useEffect(() => {
+    let startX = 0;
+    const handleTouchStart = (e) => (startX = e.touches[0].clientX);
+    const handleTouchEnd = (e) => {
+      const endX = e.changedTouches[0].clientX;
+      if (endX < startX - 50) setActiveIndex((prev) => (prev + 1) % banyakBanner);
+      if (endX > startX + 50)
+        setActiveIndex((prev) => (prev - 1 + banyakBanner) % banyakBanner);
+    };
+    const container = containerRef.current;
+    container.addEventListener("touchstart", handleTouchStart);
+    container.addEventListener("touchend", handleTouchEnd);
+    return () => {
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [banyakBanner]);
 
-        let jalan = setInterval(gerak, 15);
+  const prevSlide = () =>
+    setActiveIndex((prev) => (prev - 1 + banyakBanner) % banyakBanner);
+  const nextSlide = () => setActiveIndex((prev) => (prev + 1) % banyakBanner);
 
-        // Pause saat hover
-        slider.addEventListener("mouseenter", () => clearInterval(jalan));
-        slider.addEventListener("mouseleave", () => {
-            jalan = setInterval(gerak, 15);
-        });
-
-        return () => clearInterval(jalan);
-    }, []);
-
-    // tombol geser manual
-    const geserKiri = () => setPosisi(prev => prev + 300);
-    const geserKanan = () => setPosisi(prev => prev - 300);
-
-    return (
-        <div className="relative overflow-x-hidden bg-[#ececec] py-5 mb-5">
-
-            {/* Track slider */}
+  return (
+    <div className="mx-17 p-10">
+      <div className="relative overflow-hidden p-10 border-2" ref={containerRef}>
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${activeIndex * 70}%)` }}
+        >
+          {kotakbanner.map((banner, idx) => (
             <div
-                ref={sliderRef}
-                className="flex w-max transition-transform duration-0"
-                style={{ transform: `translateX(${posisi}px)` }}
+              key={banner.id}
+              className={`flex-shrink-0 w-[70%] mx-[1.5%] relative transition-transform duration-500 ${
+                idx === activeIndex ? "scale-100" : "scale-90"
+              }`}
+              onMouseEnter={() => setHoverIndex(idx)}
+              onMouseLeave={() => setHoverIndex(null)}
             >
-                {/* baris asli */}
-                {kotakbanner.map((banner) => (
-                    <div
-                        key={banner.id}
-                        className="min-w-[300px] mx-4 bg-white rounded-xl shadow-md
-                                   hover:-translate-y-2 transition-all cursor-pointer"
-                    >
-                        <img
-                            src={banner.gambar}
-                            alt=""
-                            className="w-full h-[250px] object-cover rounded-xl"
-                        />
-                    </div>
-                ))}
+              <img
+                src={banner.gambar}
+                alt={`banner-${banner.id}`}
+                className="w-full h-full object-cover rounded-lg shadow-md"
+              />
 
-                {/* duplikat agar infinite */}
-                {kotakbanner.map((banner) => (
-                    <div
-                        key={`copy-${banner.id}`}
-                        className="min-w-[300px] mx-4 bg-white rounded-xl shadow-md
-                                   hover:-translate-y-2 transition-all cursor-pointer"
-                    >
-                        <img
-                            src={banner.gambar}
-                            alt=""
-                            className="w-full h-[250px] object-cover rounded-xl"
-                        />
-                    </div>
-                ))}
+              {/* Panah hanya muncul saat hover di banner ini */}
+              {hoverIndex === idx && (
+                <>
+                  <button
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow hover:bg-gray-100"
+                    onClick={prevSlide}
+                  >
+                    <img src={sebelum} alt="" className="w-20"/>
+                  </button>
+                  <button
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow hover:bg-gray-100"
+                    onClick={nextSlide}
+                  >
+                    <img src={sesudah} alt="" className="w-20"/>
+                  </button>
+                </>
+              )}
             </div>
-
-            {/* Tombol kiri */}
-            <button
-                onClick={geserKiri}
-                className="absolute top-1/2 left-5 -translate-y-1/2
-                           bg-black/40 text-white w-10 h-10 rounded-full
-                           flex items-center justify-center hover:bg-black/70 transition "
-            >
-                ‹
-            </button>
-
-            {/* Tombol kanan */}
-            <button
-                onClick={geserKanan}
-                className="absolute top-1/2 right-5 -translate-y-1/2
-                           bg-black/40 text-white w-10 h-10 rounded-full
-                           flex items-center justify-center hover:bg-black/70 transition "
-            >
-                ›
-            </button>
-
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 }

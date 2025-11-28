@@ -1,5 +1,3 @@
-import { sebelum, sesudah } from "@/assets/logo";
-
 import { 
     BrosurVip, BrosurKecil, KomentarBox,
     ScrollToTop, TitlePages
